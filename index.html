@@ -1,25 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <h1>Writer Tools</h1>
+    <nav class="container">
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input name="credentials[email]" type="text" value="an@example.email">
+          <input name="credentials[password]" type="password" value="stuff">
+          <input name="credentials[password_confirmation]" type="password" value="stuff">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type="text" placeholder="EMAIL" name="credentials[email]">
+          <input type="password" placeholder="PASSWORD" name="credentials[password]">
+          <input type="submit" name="submit" value="Sign In!">
+        </fieldset>
+      </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" placeholder="OLD PASSWORD" name="passwords[old]">
+          <input type="password" placeholder="NEW PASSWORD" name="passwords[new]">
+          <input type="submit" name="submit" value="Change!">
+        </fieldset>
+      </form>
+      <form id="signout">
+        <input type="submit" name="submit" value="BYE!">
+      </form>
+    </nav>
+  </header>
+  <h1>Name Generator</h1>
+
+  <p>Ever have a problem creating a name for a restaurant, bar, or project. Well, this little gizmo is here for you. Click generate to get started.</p>
+
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-1">
+      <input id="checkBoxAll" type="checkbox" name="theme">
+      <label for="all">All</label>
+    </div>
+    <div class="col-xs-1">
+      <input id="checkBoxQuality" type="checkbox">
+      <label for="quality">Quality</label>
+    </div>
+    <div class="col-xs-1">
+    <input id="checkBoxSize" type="checkbox">
+    <label for="size">Size</label>
+    </div>
+    <div class="col-xs-1">
+    <input id="checkBoxAge" type="checkbox">
+    <label for="age">Age</label>
+    </div>
+    <div class="col-xs-1">
+    <input id="checkBoxShape" type="checkbox">
+    <label for="shape">Shape</label>
+    </div>
+    <div class="col-xs-1">
+    <input id="checkBoxColor" type="checkbox">
+    <label for="color">Color</label>
+    </div>
+    <div class="col-xs-1">
+    <input id="checkBoxMaterial" type="checkbox">
+    <label for="material">Material</label>
+    </div>
+    <div class="col-xs-1">
+    <input id="checkBoxPurpose" type="checkbox">
+    <label for="purpose">Purpose</label>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-5"></div>
+    <div class="col-xs-2">
+      <button id="name-generator" name="name_generator" type="submit">Generate a name</button>
+    </div>
+    <div class="col-xs-5"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">
+      <button name="save" type="submit">Save Name?</button>
+    </div>
+    <div class="col-xs-2">
+      <h2>Generated name:</h2>
+    </div>
+    <div class="col-xs-2">
+      <h3 class="generated-name"></h3>
+    </div>
+    <div class="col-xs-4 box">editable comment box here. Form box?</div>
+    <div class="col-xs-1"></div>'
+  </div>
+
+  <footer>
+    <h1 class=" error-reader" id="errorReader"></h1>
+    <h3>:-)</h3>
+  </footer>
+</body>
+
 </html>
