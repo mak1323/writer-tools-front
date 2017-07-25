@@ -49,9 +49,33 @@ const getFavorites = function (data) {
   return $.ajax({
     method: 'GET',
     url: config.apiOrigin + 'favorites',
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // },
+    data: data
+  })
+}
+
+// this will be a get request for names
+const getNouns = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiOrigin + 'nouns',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
+  })
+}
+
+// this will be a get request for names
+const getAdjectives = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiOrigin + 'adjectives',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   })
 }
 
@@ -83,5 +107,7 @@ module.exports = {
   signOut,
   getFavorites,
   createFavorite,
-  updateFavorite
+  updateFavorite,
+  getNouns,
+  getAdjectives
 }

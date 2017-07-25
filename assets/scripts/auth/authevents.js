@@ -3,6 +3,11 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
+
+let favorites
+let nouns
+let adjectives
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -15,15 +20,6 @@ const onSignUp = function (event) {
   } else {
     $('#errorReader').text("Passwords don't match, friend.")
   }
-}
-
-const onSignIn = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  console.log(data)
-  api.signIn(data)
-    .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
 }
 
 const onChangePassword = function (event) {
@@ -42,12 +38,43 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onUpdate = function (even) {
+const onUpdate = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.updateFavorites(data)
     .then(ui.updateFavoritesSuccess)
-    .then(ui.updateFavoritesFailure)
+    .catch(ui.updateFavoritesFailure)
+}
+
+const getFavoriteNames = function (event) {
+  event.preventDefault()
+  api.getFavorites()
+    .then(ui.getFavoritesSuccess)
+    .catch(ui.getFavoritesFailure)
+}
+
+const populateNouns = function (event) {
+  event.preventDefault()
+  api.getFavorites()
+    .then(ui.getNounsSuccess)
+    .catch(ui.getNounsFailure)
+}
+
+const populateAdjectives = function (event) {
+  event.preventDefault()
+  api.getFavorites()
+    .then(ui.getAdjectivesSuccess)
+    .catch(ui.getAdjectivesFailure)
+}
+
+const onSignIn = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data)
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+  getFavoriteNames(event)
 }
 
 const addHandlers = () => {
@@ -59,5 +86,7 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onUpdate
+  onUpdate,
+  populateNouns,
+  populateAdjectives
 }

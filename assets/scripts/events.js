@@ -1,8 +1,10 @@
 'use strict'
 
+const authEvents = require('./auth/authevents')
+
 const getAllNames = function (event) {
   event.preventDefault()
-  console.log('working')
+  authEvents.getFavorites()
 }
 
 module.exports = {

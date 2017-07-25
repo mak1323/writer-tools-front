@@ -1,6 +1,10 @@
 'use strict'
 const store = require('../store')
 
+let favorites
+let nouns
+let adjectives
+
 const message = function (str) {
   $('#errorReader').text(str)
 }
@@ -46,6 +50,36 @@ const signOutFailure = function () {
   message('You are still logged in.')
 }
 
+const getFavoritesSuccess = (data) => {
+  store.favorites = data.favorites
+  favorites = store.favorites
+  console.log(favorites)
+}
+
+const getFavoritesFailure = function () {
+  message('no go')
+}
+
+const getNounsSuccess = (data) => {
+  store.nouns = data
+  nouns = store.nouns.nouns
+  console.log(nouns)
+}
+
+const getNounsFailure = function () {
+  console.log('nope')
+}
+
+const getAdjectivesSuccess = (data) => {
+  store.adjectives = data
+  adjectives = store.adjectives.adjectives
+  console.log(adjectives)
+}
+
+const getAdjectivesFailure = function () {
+  console.log("nope")
+}
+
 const updateFavoritesSuccess = function () {
   message('New Favorite')
 }
@@ -62,6 +96,12 @@ module.exports = {
   signOutFailure,
   signOutSuccess,
   signInFailure,
+  getFavoritesSuccess,
+  getFavoritesFailure,
   updateFavoritesSuccess,
-  updateFavoritesFailure
+  updateFavoritesFailure,
+  getAdjectivesSuccess,
+  getAdjectivesFailure,
+  getNounsSuccess,
+  getNounsFailure
 }
