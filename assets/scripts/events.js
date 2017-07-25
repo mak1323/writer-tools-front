@@ -6,6 +6,7 @@ const store = require('./store')
 let noun
 let adjective
 
+// displays the name we created
 const nameDisplay = function (str) {
   $('.generated-name').text(str)
 }
@@ -14,6 +15,8 @@ const nameDisplay = function (str) {
 const randomizeWord = function () {
   return Math.random() * (154 - 1) + 1
 }
+
+
 
 const generateName = function (event) {
   noun = store.nouns[parseInt(randomizeWord())].word

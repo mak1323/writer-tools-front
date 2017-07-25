@@ -5,10 +5,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-let favorites
-let nouns
-let adjectives
-
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
