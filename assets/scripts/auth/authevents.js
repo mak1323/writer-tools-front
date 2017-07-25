@@ -55,14 +55,14 @@ const getFavoriteNames = function (event) {
 
 const populateNouns = function (event) {
   event.preventDefault()
-  api.getFavorites()
+  api.getNouns()
     .then(ui.getNounsSuccess)
     .catch(ui.getNounsFailure)
 }
 
 const populateAdjectives = function (event) {
   event.preventDefault()
-  api.getFavorites()
+  api.getAdjectives()
     .then(ui.getAdjectivesSuccess)
     .catch(ui.getAdjectivesFailure)
 }
@@ -75,6 +75,8 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
   getFavoriteNames(event)
+  populateNouns(event)
+  populateAdjectives(event)
 }
 
 const addHandlers = () => {

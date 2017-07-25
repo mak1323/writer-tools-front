@@ -61,9 +61,10 @@ const getNouns = function (data) {
   return $.ajax({
     method: 'GET',
     url: config.apiOrigin + 'nouns',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // },
+    data: data
   })
 }
 
@@ -72,10 +73,10 @@ const getAdjectives = function (data) {
   return $.ajax({
     method: 'GET',
     url: config.apiOrigin + 'adjectives',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // },
+    data: data
   })
 }
 

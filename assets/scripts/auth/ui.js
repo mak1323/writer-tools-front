@@ -61,8 +61,8 @@ const getFavoritesFailure = function () {
 }
 
 const getNounsSuccess = (data) => {
-  store.nouns = data
-  nouns = store.nouns.nouns
+  store.nouns = data.nouns
+  nouns = store.nouns
   console.log(nouns)
 }
 
@@ -71,8 +71,8 @@ const getNounsFailure = function () {
 }
 
 const getAdjectivesSuccess = (data) => {
-  store.adjectives = data
-  adjectives = store.adjectives.adjectives
+  store.adjectives = data.adjectives
+  adjectives = store.adjectives
   console.log(adjectives)
 }
 

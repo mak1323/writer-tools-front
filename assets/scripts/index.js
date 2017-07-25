@@ -16,7 +16,7 @@ $(() => {
 })
 
 $(() => {
-  $('#name-generator').on('click', events.getAllNames)
+  $('#name-generator').on('click', events.generateName)
 })
 
 // use require with a reference to bundle the file and use it in this file
