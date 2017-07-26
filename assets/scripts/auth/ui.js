@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const showFavoritesTemplate = require('../templates/favorites-listing.handlebars')
 
 let userFavorites = []
 let favorites
@@ -12,6 +13,10 @@ const message = function (str) {
   $('#errorReader').text(str)
 }
 
+const clearBooks = () => {
+  $('#saved-names').empty();
+}
+
 // iterates through favorites array to find local favorites
 const favoritesDisplay = function (array) {
   for (let i = 0; i < array.length; ++i) {
@@ -21,7 +26,6 @@ const favoritesDisplay = function (array) {
     }
   }
 }
-
 
 // for signup success
 const signUpSuccess = (data) => {
@@ -81,7 +85,8 @@ const getFavoritesSuccess = (data) => {
   favorites = store.favorites
   // finds all user favorites
   favoritesDisplay(favorites)
-  console.log(userFavorites)
+  const showFavoritesHTML = showFavoritesTemplate({ userFavorites: userFavorites })
+  $('#saved-names').append(showFavoritesHTML)
 }
 
 const getFavoritesFailure = function () {
@@ -106,11 +111,11 @@ const getAdjectivesFailure = function () {
   console.log("nope")
 }
 
-const updateFavoritesSuccess = function () {
+const createFavoritesSuccess = function () {
   message('New Favorite')
 }
 
-const updateFavoritesFailure = function () {
+const createFavoritesFailure = function () {
   message('No new favorite added.')
 }
 module.exports = {
@@ -124,8 +129,8 @@ module.exports = {
   signInFailure,
   getFavoritesSuccess,
   getFavoritesFailure,
-  updateFavoritesSuccess,
-  updateFavoritesFailure,
+  createFavoritesSuccess,
+  createFavoritesFailure,
   getAdjectivesSuccess,
   getAdjectivesFailure,
   getNounsSuccess,

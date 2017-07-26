@@ -17,6 +17,7 @@ $(() => {
 
 $(() => {
   $('#name-generator').on('click', events.generateName)
+  $('#save-name').on('click', events.postFavorite)
 })
 
 // use require with a reference to bundle the file and use it in this file

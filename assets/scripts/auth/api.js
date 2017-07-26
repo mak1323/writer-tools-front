@@ -86,7 +86,8 @@ const createFavorite = function (data) {
     url: config.apiOrigin + 'favorites',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: data
   })
 }
 

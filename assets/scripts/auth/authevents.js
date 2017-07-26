@@ -75,6 +75,13 @@ const onSignIn = function (event) {
   populateAdjectives(event)
 }
 
+const onCreateFavorite = function (data) {
+  event.preventDefault()
+  api.createFavorite(data)
+    .then(ui.updateFavoritesSuccess)
+    .catch(ui.updateFavoritesFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -86,5 +93,6 @@ module.exports = {
   addHandlers,
   onUpdate,
   populateNouns,
-  populateAdjectives
+  populateAdjectives,
+  onCreateFavorite
 }

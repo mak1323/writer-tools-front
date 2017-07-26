@@ -1,0 +1,8 @@
+{{#each userFavorites as |favorite|}}
+<form data-id="{{favorite.id}}">
+   <div class="box">
+  <h1 data-id="{{favorite.adjective}}"> <small>Name: The {{favorite.adjective}} {{favorite.noun}}</small></h1>
+    <p>{{favorite.comment}}</p>
+  </div>
+<form>
+{{/each}}
