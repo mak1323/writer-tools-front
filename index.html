@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>Writer Tools V1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags unless you know what you are doing -->
@@ -50,65 +50,126 @@
   <h1>Name Generator</h1>
 
   <p>Ever have a problem creating a name for a restaurant, bar, or project. Well, this little gizmo is here for you. Click generate to get started.</p>
-
-  <div class="row">
-    <div class="col-xs-5"></div>
-    <div class="col-xs-2">
-      <button id="name-generator" name="name_generator" type="submit">Generate a name</button>
-    </div>
-    <div class="col-xs-2">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Save Name</button>
-      <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <form>
-        <div class="form-group">
-          <label for="message-text" class="form-control-label">Comment:</label>
-          <textarea class="form-control" id="message-text" value="Your comment here"></textarea>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">Save Comment</button>
-    </div>
+  <div class='container-fluid content'>
+    <div class="row">
+      <div class="col-xs-5"></div>
+      <div class="col-xs-2">
+        <button id="name-generator" name="name_generator" type="submit">Generate a name</button>
+      </div>
+      <div class="col-xs-2">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Save Name</button>
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <form>
+                <div class="form-group">
+                  <label for="message-text" class="form-control-label">Comment:</label>
+                  <textarea class="form-control" id="message-text" value="Your comment here"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">Save Comment</button>
+            </div>
           </div>
         </div>
       </div>
+      <div class="col-xs-3"></div>
     </div>
-    <div class="col-xs-3"></div>
-  </div>
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-2">
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <h4>Generated name:</h4>
+      </div>
+      <div class="col-xs-2">
+        <h5 class="generated-name"></h5>
+      </div>
+      <div class="col-xs-4"></div>
+      <div class="col-xs-1"></div>'
     </div>
-    <div class="col-xs-2">
-      <h2>Generated name:</h2>
-    </div>
-    <div class="col-xs-2">
-      <h4 class="generated-name"></h4>
-    </div>
-    <div class="col-xs-4 box"></div>
-    <div class="col-xs-1"></div>'
-  </div>
-  <div class="row">
-    <div class="col-xs-3"></div>
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-2">
+        <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
 
-  <div class="col-xs-6 box" id="saved-names" style="width:400px;height:400px;line-height:3em;overflow:scroll;padding:5px;">
-This 'div' element uses 'overflow:scroll' to create scrollbars.
-</div>
-<div class="col-xs-3"></div>
-</div>
-<div class="row">
-  <div class="col-xs-3"></div>
-  <div class="col-xs-6">
-  <footer>
-    <h1 class=" error-reader" id="errorReader"></h1>
-    <h3>:-)</h3>
-  </footer>
-</div>
-<div class="col-xs-3"></div>
-</div>
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <form>
+                <div class="form-group">
+                  <label for="message-text" class="form-control-label">ID Number</label>
+                  <textarea class="form-control" id="id-text" value="ID Number here"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="form-control-label">Descriptor</label>
+                  <textarea class="form-control" id="descriptor-text" value="Descriptor here"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="form-control-label">Noun</label>
+                  <textarea class="form-control" id="noun-text" value="New noun here"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="form-control-label">Comment</label>
+                  <textarea class="form-control" id="comment-text" value="New commment here"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="save-name-edit" type="button" class="btn btn-primary" data-dismiss="modal">Save Update</button>
+                </div>
+              </form>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-delete-modal-sm">Delete Favorite</button>
+
+      <div class="modal fade bd-delete-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <form>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Delete By ID Number</label>
+                <textarea class="form-control" id="id-text-delete" value="ID Number of delete here"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Descriptor</label>
+                <textarea class="form-control" id="descriptor-delete-text" value="Descriptor here"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Noun</label>
+                <textarea class="form-control" id="noun-delete-text" value="New noun here"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Comment</label>
+                <textarea class="form-control" id="comment-delete-text" value="New commment here"></textarea>
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="delete-name" type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6" id="saved-names" style="width:400px;height:400px;line-height:3em;overflow:scroll;padding:5px;">
+      </div>
+      <div class="col-xs-3"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+      <footer>
+        <h1 class=" error-reader" id="errorReader"></h1>
+        <h3>:-)</h3>
+      </footer>
+    </div>
+    <div class="col-xs-3"></div>
+  </div>
 </body>
 
 </html>

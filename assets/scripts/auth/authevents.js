@@ -34,19 +34,23 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onUpdate = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.updateFavorites(data)
-    .then(ui.updateFavoritesSuccess)
-    .catch(ui.updateFavoritesFailure)
-}
 
 const getFavoriteNames = function (event) {
   event.preventDefault()
   api.getFavorites()
     .then(ui.getFavoritesSuccess)
     .catch(ui.getFavoritesFailure)
+}
+
+const onUpdate = function (event, data) {
+  event.preventDefault()
+  const id = data.favorite.id
+  console.log(data)
+  console.log(id)
+  api.updateFavorite(data, id)
+  .then(ui.updateFavoritesSuccess)
+  .catch(ui.updateFavoritesFailure)
+  getFavoriteNames(event)
 }
 
 const populateNouns = function (event) {
@@ -75,11 +79,20 @@ const onSignIn = function (event) {
   populateAdjectives(event)
 }
 
-const onCreateFavorite = function (data) {
+const onCreateFavorite = function (event, data) {
   event.preventDefault()
   api.createFavorite(data)
     .then(ui.updateFavoritesSuccess)
     .catch(ui.updateFavoritesFailure)
+  getFavoriteNames(event)
+}
+
+const onDestroyFavorite = function (event, data, id) {
+  event.preventDefault()
+  api.destroyFavorite(data, id)
+    .then(ui.destroyFavoriteSuccess)
+    .catch(ui.destroyFavoriteFailure)
+  getFavoriteNames(event)
 }
 
 const addHandlers = () => {
@@ -94,5 +107,6 @@ module.exports = {
   onUpdate,
   populateNouns,
   populateAdjectives,
-  onCreateFavorite
+  onCreateFavorite,
+  onDestroyFavorite
 }

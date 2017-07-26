@@ -9,6 +9,7 @@ $(() => {
   setAPIOrigin(location, config)
   $('#change-password').hide()
   $('#signout').hide()
+  $('.content').hide()
 })
 
 $(() => {
@@ -18,6 +19,8 @@ $(() => {
 $(() => {
   $('#name-generator').on('click', events.generateName)
   $('#save-name').on('click', events.postFavorite)
+  $('#save-name-edit').on('click', events.patchFavorite)
+  $('#delete-name').on('click', events.deleteFavorite)
 })
 
 // use require with a reference to bundle the file and use it in this file

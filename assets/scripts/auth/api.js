@@ -91,13 +91,25 @@ const createFavorite = function (data) {
   })
 }
 
-const updateFavorite = function (data) {
+const updateFavorite = function (data, id) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiOrigin + 'games/' + ui.favoriteId(),
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
+    url: config.apiOrigin + 'favorites/' + id,
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // },
+    data: data
+  })
+}
+
+// this is working perfectly fine
+const destroyFavorite = function (data, id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiOrigin + 'favorites/' + id,
+  //   headers: {
+  //     Authorization: 'Token token=' + store.user.token
+  //   }
     data: data
   })
 }
@@ -111,5 +123,6 @@ module.exports = {
   createFavorite,
   updateFavorite,
   getNouns,
-  getAdjectives
+  getAdjectives,
+  destroyFavorite
 }

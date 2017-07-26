@@ -13,14 +13,14 @@ const message = function (str) {
   $('#errorReader').text(str)
 }
 
-const clearBooks = () => {
-  $('#saved-names').empty();
+const clearFavorites = (array) => {
+  $('.box').remove()
+  array = []
 }
 
 // iterates through favorites array to find local favorites
 const favoritesDisplay = function (array) {
   for (let i = 0; i < array.length; ++i) {
-    console.log(array[i].user.id)
     if (array[i].user.id === userId) {
       userFavorites.push(array[i])
     }
@@ -48,6 +48,7 @@ const signInSuccess = (data) => {
   $('#signout').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('.content').show()
 }
 
 // sign upfailure catch
@@ -71,6 +72,7 @@ const signOutSuccess = function () {
   $('#signout').hide()
   $('#sign-up').show()
   $('#sign-in').show()
+  $('.content').show()
 }
 
 // sign out failure
@@ -80,11 +82,14 @@ const signOutFailure = function () {
 
 // get favorites success
 const getFavoritesSuccess = (data) => {
+  // should clear favorites
+  clearFavorites(userFavorites)
   // stores favorites in store
   store.favorites = data.favorites
   favorites = store.favorites
   // finds all user favorites
   favoritesDisplay(favorites)
+  // append them with handlebars
   const showFavoritesHTML = showFavoritesTemplate({ userFavorites: userFavorites })
   $('#saved-names').append(showFavoritesHTML)
 }
@@ -118,6 +123,22 @@ const createFavoritesSuccess = function () {
 const createFavoritesFailure = function () {
   message('No new favorite added.')
 }
+
+const updateFavoritesSuccess = function () {
+  message('Favorite is Updated')
+}
+
+const updateFavoritesFailure = function () {
+  message('Either not your favorite, or field fail.')
+}
+
+const destroyFavoriteSuccess = function () {
+  message('Favorite is Updated')
+}
+
+const destroyFavoriteFailure = function () {
+  message('Either not your favorite, or field fail.')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -134,5 +155,9 @@ module.exports = {
   getAdjectivesSuccess,
   getAdjectivesFailure,
   getNounsSuccess,
-  getNounsFailure
+  getNounsFailure,
+  updateFavoritesSuccess,
+  updateFavoritesFailure,
+  destroyFavoriteFailure,
+  destroyFavoriteSuccess
 }
