@@ -103,36 +103,106 @@
 
     </div>
 
+
     <div class="container-fluid" id="name-generator-page">
+
       <div class="row">
+
       </div>
+
       <div class="row">
+
         <div class="col-md-2">
+
         </div>
+
         <div class="col-md-8 col-xs-12 box">
+
           <h1>Name Generator</h1>
+
         </div>
+
         <div class="col-md-2">
+
         </div>
+
       </div>
+
         <div class="row">
+
           <div class="col-md-2 col-xs-1">
+
           </div>
+
           <div class="col-md-8 col-xs-10 box">
             <p>Ever have a problem creating a name for a restaurant, bar, or project. Well, this little gizmo is here for you. Click generate to get started.</p>
+
           </div>
+
           <div class="col-md-2 col-xs-1">
+
           </div>
+
       </div>
+
       <div class="row">
+
         <div class="col-md-5 col-xs-5">
+
         </div>
+
         <div class="col-md-2 col-xs-2 generator-btn">
+
           <a class="btn" id="generate-name-btn" data-toggle="modal" data-target=".bs-generate-name" href="#">Generate a Name</a>
+
         </div>
+
         <div class="col-md-5 col-xs-5">
+
         </div>
+
     </div>
+
+    <div class="row">
+
+      <div class="col-md-2 col-xs-1">
+
+      </div>
+
+      <div class="col-md-8 col-xs-10 box">
+
+        <table class="table">
+
+          <thead>
+
+            <tr>
+
+              <th>#</th>
+
+              <th>Name</th>
+
+              <th>Comment</th>
+
+              <th>Edit</th>
+
+              <th>Delete</th>
+
+            </tr>
+
+          </thead>
+          <tbody class="favorited-names">
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="col-md-2 col-xs-1">
+
+      </div>
+
+  </div>
 
     </div>
 
@@ -289,7 +359,7 @@
 
             <h5 class="generated-name"></h5>
 
-            <textarea class="form-control" id="message-text" placeholder="Your comment here"></textarea>
+            <textarea class="form-control" id="message-text" placeholder="Your comment here, 50 characters or less." maxlength="50"></textarea>
 
             <button id="name-generator" name="name_generator" type="submit">Generate a name</button>
 
