@@ -1,7 +1,19 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+a {
+  color: white;
+}
+
 
 body {
   background-image: url('http://i.imgur.com/NAktdV9.jpg');
+}
+
+h1 {
+  color: white;
+}
+
+.content {
+  padding-top: 100px;
 }
