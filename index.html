@@ -127,9 +127,8 @@
       <div class="row">
         <div class="col-md-5 col-xs-5">
         </div>
-        <div class="col-md-2 col-xs-2 box">
-          <button class="btn" id="change-password-btn" data-toggle="modal" data-target=".bs-generate-name" href="#">Generate a Name</a>
-          <!-- <button id="name-generator" name="name_generator" type="submit">Generate a name</button> -->
+        <div class="col-md-2 col-xs-2 generator-btn">
+          <a class="btn" id="generate-name-btn" data-toggle="modal" data-target=".bs-generate-name" href="#">Generate a Name</a>
         </div>
         <div class="col-md-5 col-xs-5">
         </div>
@@ -265,6 +264,36 @@
             <legend>Sign Out!</legend>
 
             <input type="submit" name="submit" value="BYE!">
+
+          </fieldset>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal fade bs-generate-name" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <form id="generatename">
+
+          <fieldset>
+
+            <legend>Generated Name</legend>
+
+            <h5 class="generated-name"></h5>
+
+            <textarea class="form-control" id="message-text" placeholder="Your comment here"></textarea>
+
+            <button id="name-generator" name="name_generator" type="submit">Generate a name</button>
+
+            <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">Save Name</button>
 
           </fieldset>
 
