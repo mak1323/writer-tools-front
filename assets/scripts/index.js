@@ -7,8 +7,8 @@ const events = require('./events')
 
 $(() => {
   setAPIOrigin(location, config)
-  $('#change-password').hide()
-  $('#signout').hide()
+  $('#sign-out-btn').hide()
+  $('#change-password-btn').hide()
   $('.content').hide()
 })
 

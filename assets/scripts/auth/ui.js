@@ -44,10 +44,10 @@ const signInSuccess = (data) => {
   console.log(store.user.id)
   userId = store.user.id
   console.log(userId)
-  $('#change-password').show()
-  $('#signout').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
+  $('#change-password-btn').show()
+  $('#sign-out-btn').show()
+  $('#sign-up-btn').hide()
+  $('#sign-in-btn').hide()
   $('.content').show()
 }
 
@@ -68,11 +68,10 @@ const changePasswordFailure = function () {
 
 // sign out success
 const signOutSuccess = function () {
-  $('#change-password').hide()
-  $('#signout').hide()
-  $('#sign-up').show()
-  $('#sign-in').show()
-  $('.content').show()
+  $('#change-password-btn').hide()
+  $('#sign-out-btn').hide()
+  $('#sign-up-btn').show()
+  $('#sign-in-btn').show()
 }
 
 // sign out failure

@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://pure-tundra-23985.herokuapp.com/'
+    // production: 'https://pure-tundra-23985.herokuapp.com/'
+    production: 'http://localhost:4741/'
   }
 }
 
