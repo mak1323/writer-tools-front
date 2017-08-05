@@ -15,151 +15,56 @@
 
 <body class="container-fluid">
   <header>
-    <h1>Writer Tools</h1>
-    <nav class="container">
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input name="credentials[email]" type="text" value="an@example.email">
-          <input name="credentials[password]" type="password" value="stuff">
-          <input name="credentials[password_confirmation]" type="password" value="stuff">
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <input type="text" placeholder="EMAIL" name="credentials[email]">
-          <input type="password" placeholder="PASSWORD" name="credentials[password]">
-          <input type="submit" name="submit" value="Sign In!">
-        </fieldset>
-      </form>
-      <form id="change-password">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <input type="password" placeholder="OLD PASSWORD" name="passwords[old]">
-          <input type="password" placeholder="NEW PASSWORD" name="passwords[new]">
-          <input type="submit" name="submit" value="Change!">
-        </fieldset>
-      </form>
-      <form id="signout">
-        <input type="submit" name="submit" value="BYE!">
-      </form>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="#">
+                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="row nav navbar-nav">
+            <div class="col-md-8 col-xs-0">
+                 <h1>Writer Tools</h1>
+               </div>
+            <div class="col-md-2 col-xs-6">
+              <div>
+                <a class="btn" id="sign-up-btn" data-toggle="modal" data-target=".bs-sign-up" href="#">Sign Up</a>
+              </div>
+              <div>
+                <a class="btn" id="sign-out-btn" data-toggle="modal" data-target=".bs-sign-out" href="#">Sign-Out</a>
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-6">
+              <div>
+                <a class="btn" id="sign-in-btn" data-toggle="modal" data-target=".bs-sign-in"   href="#">Sign In</a>
+              </div>
+              <div>
+                <a class="btn" id="change-password-btn" data-toggle="modal" data-target=".bs-change-password" href="#">Change Password</a>
+              </div>
+            </div>
+            <!-- <div class="col-md-2 col-xs-6">
+              <a class="btn" id="change-password-btn" data-toggle="modal" data-target=".bs-change-password" href="#">Change Password</a>
+            </div> -->
+            <!-- <div class="col-md-2 col-xs-6">
+              <a class="btn" id="sign-out-btn" data-toggle="modal" data-target=".bs-sign-out" href="#">Sign-Out</a>
+            </div> -->
+          </div>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
     </nav>
-  </header>
-  <h1>Name Generator</h1>
 
-  <p>Ever have a problem creating a name for a restaurant, bar, or project. Well, this little gizmo is here for you. Click generate to get started.</p>
-  <div class='container-fluid content'>
-    <div class="row">
-      <div class="col-xs-5"></div>
-      <div class="col-xs-2">
-        <button id="name-generator" name="name_generator" type="submit">Generate a name</button>
-      </div>
-      <div class="col-xs-2">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Save Name</button>
-        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <form>
-                <div class="form-group">
-                  <label for="message-text" class="form-control-label">Comment:</label>
-                  <textarea class="form-control" id="message-text" value="Your comment here"></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">Save Comment</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-3"></div>
-    </div>
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-2">
-      </div>
-      <div class="col-xs-2">
-        <h4>Generated name:</h4>
-      </div>
-      <div class="col-xs-2">
-        <h5 class="generated-name"></h5>
-      </div>
-      <div class="col-xs-4"></div>
-      <div class="col-xs-1"></div>'
-    </div>
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-2">
-        <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Change Favorite</button>
-
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <form>
-                <div class="form-group">
-                  <label for="message-text" class="form-control-label">ID Number</label>
-                  <textarea class="form-control" id="id-text" value="ID Number here"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="form-control-label">Descriptor</label>
-                  <textarea class="form-control" id="descriptor-text" value="Descriptor here"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="form-control-label">Noun</label>
-                  <textarea class="form-control" id="noun-text" value="New noun here"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="form-control-label">Comment</label>
-                  <textarea class="form-control" id="comment-text" value="New commment here"></textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button id="save-name-edit" type="button" class="btn btn-primary" data-dismiss="modal">Save Update</button>
-                </div>
-              </form>
-              <br>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-delete-modal-sm">Delete Favorite</button>
-
-      <div class="modal fade bd-delete-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <form>
-              <div class="form-group">
-                <label for="message-text" class="form-control-label">Delete By ID Number</label>
-                <textarea class="form-control" id="id-text-delete" value="ID Number of delete here"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="form-control-label">Descriptor</label>
-                <textarea class="form-control" id="descriptor-delete-text" value="Descriptor here"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="form-control-label">Noun</label>
-                <textarea class="form-control" id="noun-delete-text" value="New noun here"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="form-control-label">Comment</label>
-                <textarea class="form-control" id="comment-delete-text" value="New commment here"></textarea>
-              </div>
-            </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button id="delete-name" type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6" id="saved-names" style="width:400px;height:400px;line-height:3em;overflow:scroll;padding:5px;">
-      </div>
-      <div class="col-xs-3"></div>
-    </div>
-  </div>
   <div class="row">
     <div class="col-xs-3"></div>
     <div class="col-xs-6">
@@ -169,6 +74,63 @@
       </footer>
     </div>
     <div class="col-xs-3"></div>
+  </div>
+
+  <div class="modal fade bs-sign-up" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <input name="credentials[email]" type="text" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="password">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bs-sign-in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <form id="sign-in">
+          <fieldset>
+            <legend>Sign in!</legend>
+            <input type="text" placeholder="EMAIL" name="credentials[email]">
+            <input type="password" placeholder="PASSWORD" name="credentials[password]">
+            <input type="submit" name="submit" value="Sign In!">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bs-change-password" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password!</legend>
+            <input name="credentials[email]" type="text" value="an@example.email">
+            <input name="credentials[password]" type="password" value="stuff">
+            <input name="credentials[password_confirmation]" type="password" value="stuff">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bs-sign-out" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <form id="signout">
+          <fieldset>
+            <legend>Sign Out!</legend>
+            <input type="submit" name="submit" value="BYE!">
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
 </body>
 
