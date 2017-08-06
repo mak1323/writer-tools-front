@@ -1,9 +1,63 @@
+<div data-id="favorites-list">
+
+
 {{#each userFavorites as |favorite|}}
+
 <form data-id="{{favorite.id}}">
-   <div class="box">
-  <h1 data-id="{{favorite.adjective}}"> <small>Name: The {{favorite.adjective}} {{favorite.noun}}</small></h1>
-    <p>{{favorite.comment}}</p>
-    <h3>Favorite Id: {{favorite.id}}</h3>
-  </div>
-<form>
+
+  <a class="btn" data-toggle="modal" data-target=".bs-edit-delete" href="#"
+  class="list-group-item list-group-item-action">
+
+  <h4> The
+
+  <span data-id="{{favorite.adjective}}">{{favorite.adjective}}</span>
+
+  <span data-id="{{favorite.noun}}">{{favorite.noun}}</span>
+
+</h4>
+
+  <p data-id="{{favorite.comment}}">
+
+    {{favorite.comment}}
+
+</p>
+
+</a>
+
+</form>
+
 {{/each}}
+
+</div>
+
+<div class="modal fade bs-edit-delete" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog modal-sm">
+
+    <div class="modal-content">
+
+      <form id="generatename">
+
+        <fieldset>
+
+          <legend>Edit or Delete Name</legend>
+
+          <p>Keep inputs 50 characters or less.</p>
+
+          <textarea class="form-control" id="adjective-text" maxlength="50"></textarea>
+
+          <textarea class="form-control" id="noun-text" maxlength="50"></textarea>
+
+          <textarea class="form-control" id="comment-text" maxlength="50"></textarea>
+
+          <button id="name-generator" name="name_generator" type="submit">Save Edits</button>
+
+          <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">Delete Name</button>
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>

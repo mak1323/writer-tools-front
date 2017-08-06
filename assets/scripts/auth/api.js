@@ -1,7 +1,6 @@
 'use strict'
 const config = require('../config')
 const store = require('../store')
-const ui = require('./ui')
 
 // this is my sign up function, working well
 const signUp = function (data) {
@@ -45,14 +44,13 @@ const signOut = function (data) {
 }
 
 // this will be a get request for names
-const getFavorites = function (data) {
+const getFavorites = function (token) {
   return $.ajax({
     method: 'GET',
     url: config.apiOrigin + 'favorites',
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // },
-    data: data
+    headers: {
+      Authorization: 'Token token=' + token
+    }
   })
 }
 

@@ -59,6 +59,7 @@ const randomizeWord = function () {
 }
 
 const generateName = function (event) {
+  event.preventDefault()
   noun = store.nouns[parseInt(randomizeWord())].word
   adjective = store.adjectives[parseInt(randomizeWord())].word
   const currentName = 'The ' + adjective + ' ' + noun
@@ -76,15 +77,17 @@ const postFavorite = function (event) {
       "comment": comment
     }
   }
+  console.log(data)
   authEvents.onCreateFavorite(event, data)
 }
 
 const patchFavorite = function (event) {
+  let comment
   event.preventDefault()
   const idInitial = document.getElementById('id-text').value
   adjective = document.getElementById('descriptor-text').value
   noun = document.getElementById('noun-text').value
-  comment = document.getElementById('comment-text').value
+  comment = document.getElementById('message-text').formcontrol
   const idCheckOne = parseInt(idInitial)
   const idCheckTwo = testID(idCheckOne)
   id = checkFavorites(idCheckTwo)
@@ -97,6 +100,7 @@ const patchFavorite = function (event) {
       "comment": comment
     }
   }
+  console.log(data)
   authEvents.onUpdate(event, data)
   resetWords()
 }

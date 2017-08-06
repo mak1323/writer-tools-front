@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -15,6 +16,7 @@ const onSignUp = function (event) {
   } else {
     $('#errorReader').text("Passwords don't match, friend.")
   }
+  return data
 }
 
 const onChangePassword = function (event) {
@@ -33,9 +35,8 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const getFavoriteNames = function (event) {
-  event.preventDefault()
-  api.getFavorites()
+const getFavoriteNames = function (data) {
+  api.getFavorites(data)
     .then(ui.getFavoritesSuccess)
     .catch(ui.getFavoritesFailure)
 }
@@ -68,11 +69,10 @@ const populateAdjectives = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(getFavoriteNames)
     .catch(ui.signInFailure)
-  getFavoriteNames(event)
   populateNouns(event)
   populateAdjectives(event)
 }
@@ -80,6 +80,7 @@ const onSignIn = function (event) {
 const onCreateFavorite = function (event, data) {
   event.preventDefault()
   api.createFavorite(data)
+    .then()
     .then(ui.updateFavoritesSuccess)
     .catch(ui.updateFavoritesFailure)
   getFavoriteNames(event)

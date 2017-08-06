@@ -1,6 +1,8 @@
 'use strict'
 const store = require('../store')
 const showFavoritesTemplate = require('../templates/favorites-listing.handlebars')
+const addFavorite = require('../templates/new-favorite-listing.handlebars')
+const api = require('./api')
 
 let userFavorites = []
 let favorites
@@ -14,17 +16,19 @@ const message = function (str) {
 }
 
 const clearFavorites = (array) => {
-  $('.box').remove()
+  $('#saved-names').empty()
   array = []
 }
 
 // iterates through favorites array to find local favorites
 const favoritesDisplay = function (array) {
+  const currentFavorites = []
   for (let i = 0; i < array.length; ++i) {
-    if (array[i].user.id === userId) {
-      userFavorites.push(array[i])
+    if (array[i].user.id === store.user.id) {
+      currentFavorites.push(array[i])
     }
   }
+  return currentFavorites
 }
 
 // for signup success
@@ -35,20 +39,6 @@ const signUpSuccess = (data) => {
 // for signin failute
 const signInFailure = (data) => {
   message("User doesn't exist or password is incorrect. Try Again")
-}
-
-// sign in success
-const signInSuccess = (data) => {
-  message('Signed in. To start playing click new game.')
-  store.user = data.user
-  console.log(store.user.id)
-  userId = store.user.id
-  console.log(userId)
-  $('#change-password-btn').show()
-  $('#sign-out-btn').show()
-  $('#sign-up-btn').hide()
-  $('#sign-in-btn').hide()
-  $('.content').show()
 }
 
 // sign upfailure catch
@@ -66,14 +56,6 @@ const changePasswordFailure = function () {
   message("You're password has changed successfully.")
 }
 
-// sign out success
-const signOutSuccess = function () {
-  $('#change-password-btn').hide()
-  $('#sign-out-btn').hide()
-  $('#sign-up-btn').show()
-  $('#sign-in-btn').show()
-}
-
 // sign out failure
 const signOutFailure = function () {
   message('You are still logged in.')
@@ -86,11 +68,31 @@ const getFavoritesSuccess = (data) => {
   // stores favorites in store
   store.favorites = data.favorites
   favorites = store.favorites
-  // finds all user favorites
-  favoritesDisplay(favorites)
+  const userFavorites = favoritesDisplay(favorites)
   // append them with handlebars
   const showFavoritesHTML = showFavoritesTemplate({ userFavorites: userFavorites })
   $('#saved-names').append(showFavoritesHTML)
+}
+
+// sign in success
+const signInSuccess = (data) => {
+  message('Signed in. To start playing click new game.')
+  store.user = data.user
+  $('#change-password-btn').show()
+  $('#sign-out-btn').show()
+  $('#sign-up-btn').hide()
+  $('#sign-in-btn').hide()
+  $('.content').show()
+  return store.user.token
+}
+
+// sign out success
+const signOutSuccess = function () {
+  $('#change-password-btn').hide()
+  $('#sign-out-btn').hide()
+  $('#sign-up-btn').show()
+  $('#sign-in-btn').show()
+  $('.content').hide()
 }
 
 const getFavoritesFailure = function () {
@@ -115,8 +117,10 @@ const getAdjectivesFailure = function () {
   console.log("nope")
 }
 
-const createFavoritesSuccess = function () {
+const createFavoritesSuccess = function (data) {
   message('New Favorite')
+  const showFavoritesHTML = addFavorite({ data })
+  $('#saved-names').append(showFavoritesHTML)
 }
 
 const createFavoritesFailure = function () {
