@@ -3,6 +3,7 @@
 const authEvents = require('./auth/authevents')
 const store = require('./store')
 const ui = require('./auth/ui')
+const getFormFields = require('../../lib/get-form-fields')
 
 let noun
 let adjective
@@ -81,28 +82,52 @@ const postFavorite = function (event) {
   authEvents.onCreateFavorite(event, data)
 }
 
+// const patchFavorite = function (event) {
+//   let comment
+//   event.preventDefault()
+//   const idInitial = document.getElementById('id-text').value
+//   adjective = document.getElementById('descriptor-text').value
+//   noun = document.getElementById('noun-text').value
+//   comment = document.getElementById('message-text').formcontrol
+//   const idCheckOne = parseInt(idInitial)
+//   const idCheckTwo = testID(idCheckOne)
+//   id = checkFavorites(idCheckTwo)
+//   const data = {
+//     "favorite": {
+//       "id": id,
+//       "adjective": adjective,
+//       "noun": noun,
+//       "user_id": store.user.id,
+//       "comment": comment
+//     }
+//   }
+//   console.log(data)
+//   authEvents.onUpdate(event, data)
+//   resetWords()
+// }
+
 const patchFavorite = function (event) {
-  let comment
   event.preventDefault()
-  const idInitial = document.getElementById('id-text').value
-  adjective = document.getElementById('descriptor-text').value
-  noun = document.getElementById('noun-text').value
-  comment = document.getElementById('message-text').formcontrol
-  const idCheckOne = parseInt(idInitial)
-  const idCheckTwo = testID(idCheckOne)
-  id = checkFavorites(idCheckTwo)
-  const data = {
-    "favorite": {
-      "id": id,
-      "adjective": adjective,
-      "noun": noun,
-      "user_id": store.user.id,
-      "comment": comment
-    }
-  }
-  console.log(data)
-  authEvents.onUpdate(event, data)
-  resetWords()
+console.log('working')
+  // const idInitial = document.getElementById('id-text').value
+  // adjective = document.getElementById('descriptor-text').value
+  // noun = document.getElementById('noun-text').value
+  // comment = document.getElementById('message-text').formcontrol
+  // const idCheckOne = parseInt(idInitial)
+  // const idCheckTwo = testID(idCheckOne)
+  // id = checkFavorites(idCheckTwo)
+  // const data = {
+  //   "favorite": {
+  //     "id": id,
+  //     "adjective": adjective,
+  //     "noun": noun,
+  //     "user_id": store.user.id,
+  //     "comment": comment
+  //   }
+  // }
+  // console.log(data)
+  // authEvents.onUpdate(event, data)
+  // resetWords()
 }
 
 const deleteFavorite = function (event) {

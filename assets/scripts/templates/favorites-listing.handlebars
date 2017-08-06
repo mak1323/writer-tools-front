@@ -1,63 +1,40 @@
 <div data-id="favorites-list">
 
 
-{{#each userFavorites as |favorite|}}
 
-<form data-id="{{favorite.id}}">
+<form >
 
-  <a class="btn" data-toggle="modal" data-target=".bs-edit-delete" href="#"
-  class="list-group-item list-group-item-action">
+  <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>Edit or Delete</th>
+        <th>Name<th/
+        <th>Adjective</th>
+        <th>Noun</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
 
-  <h4> The
+      {{#each userFavorites as |favorite|}}
 
-  <span data-id="{{favorite.adjective}}">{{favorite.adjective}}</span>
+      <tr data-id={{favorite.id}}>
 
-  <span data-id="{{favorite.noun}}">{{favorite.noun}}</span>
+        <th>  <a class="load-edit-btn btn" data-toggle="modal" data-target=".bs-edit-delete" href="#"
+          class="list-group-item list-group-item-action" id="{{favorite.id}}">Edit or Delete</a></th>
 
-</h4>
+        <td >The {{favorite.adjective}} {{favorite.noun}}</td>
 
-  <p data-id="{{favorite.comment}}">
+        <td>{{favorite.adjective}}</td>
 
-    {{favorite.comment}}
+        <td>{{favorite.noun}}</td>
 
-</p>
+        <td>{{favorite.comment}}</td>
 
-</a>
+      </tr>
 
-</form>
+      {{/each}}
 
-{{/each}}
+    </tbody>
 
-</div>
-
-<div class="modal fade bs-edit-delete" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-  <div class="modal-dialog modal-sm">
-
-    <div class="modal-content">
-
-      <form id="generatename">
-
-        <fieldset>
-
-          <legend>Edit or Delete Name</legend>
-
-          <p>Keep inputs 50 characters or less.</p>
-
-          <textarea class="form-control" id="adjective-text" maxlength="50"></textarea>
-
-          <textarea class="form-control" id="noun-text" maxlength="50"></textarea>
-
-          <textarea class="form-control" id="comment-text" maxlength="50"></textarea>
-
-          <button id="name-generator" name="name_generator" type="submit">Save Edits</button>
-
-          <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">Delete Name</button>
-
-        </fieldset>
-
-      </form>
-
-    </div>
-
-  </div>
+  </table>
