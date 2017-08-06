@@ -45,6 +45,7 @@ const favoritesDisplay = function (array) {
 // for signup success
 const signUpSuccess = (data) => {
   message('You have made a new user. Sign in?')
+  resetModalValues()
 }
 
 // for signin failute
@@ -60,6 +61,7 @@ const signUpFailure = (data) => {
 // change password success
 const changePasswordSuccess = (data) => {
   message("You're password has changed successfully.")
+  resetModalValues()
 }
 
 // change password failure
@@ -82,6 +84,7 @@ const getFavoritesSuccess = (data) => {
   // append them with handlebars
   const showFavoritesHTML = showFavoritesTemplate({ userFavorites: userFavorites })
   $('#saved-names').append(showFavoritesHTML)
+  resetModalValues()
 }
 
 // sign in success
@@ -93,6 +96,7 @@ const signInSuccess = (data) => {
   $('#sign-up-btn').hide()
   $('#sign-in-btn').hide()
   $('.content').show()
+  resetModalValues()
   return store.user.token
 }
 
@@ -103,6 +107,7 @@ const signOutSuccess = function () {
   $('#sign-up-btn').show()
   $('#sign-in-btn').show()
   $('.content').hide()
+  resetModalValues()
 }
 
 const getFavoritesFailure = function () {
@@ -129,8 +134,7 @@ const getAdjectivesFailure = function () {
 
 const createFavoritesSuccess = function (data) {
   message('New Favorite')
-  // const showFavoritesHTML = addFavorite({ data })
-  // $('#saved-names').append(showFavoritesHTML)
+  resetModalValues()
   return store.user.token
 
 }
@@ -141,6 +145,7 @@ const createFavoritesFailure = function () {
 
 const updateFavoritesSuccess = function () {
   message('Favorite is Updated')
+  resetModalValues()
   return store.user.token
 }
 
@@ -150,6 +155,7 @@ const updateFavoritesFailure = function () {
 
 const destroyFavoriteSuccess = function () {
   message('Favorite is Updated')
+  resetModalValues()
   return store.user.token
 }
 
@@ -166,6 +172,7 @@ const getUpdateNameListSuccess = function (data) {
   // append them with handlebars
   const showFavoritesHTML = showFavoritesTemplate({ userFavorites: userFavorites })
   $('#saved-names').append(showFavoritesHTML)
+  resetModalValues()
 }
 
 const getUpdateNameListFailure = function () {

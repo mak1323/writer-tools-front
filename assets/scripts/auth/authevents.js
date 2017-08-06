@@ -49,8 +49,6 @@ const getUpdateNameList = function (data) {
 const onUpdate = function (event, data) {
   event.preventDefault()
   const id = data.favorite.id
-  console.log(data)
-  console.log(id)
   api.updateFavorite(data, id)
   .then(ui.updateFavoritesSuccess)
   .then(getUpdateNameList)

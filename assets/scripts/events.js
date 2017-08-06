@@ -57,6 +57,7 @@ const generateName = function (event) {
 
 const postFavorite = function (event) {
   event.preventDefault()
+
   comment = document.getElementById('message-text').value
   const data = {
     "favorite": {
@@ -66,7 +67,10 @@ const postFavorite = function (event) {
       "comment": comment
     }
   }
-  console.log(data)
+  if (data.noun === undefined) {
+    alert('You must generate a name first')
+    return
+  }
   authEvents.onCreateFavorite(event, data)
 }
 
