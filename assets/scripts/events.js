@@ -67,7 +67,7 @@ const postFavorite = function (event) {
       "comment": comment
     }
   }
-  if (data.noun === undefined) {
+  if (noun === undefined) {
     alert('You must generate a name first')
     return
   }
