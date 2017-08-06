@@ -54,6 +54,16 @@ const getFavorites = function (token) {
   })
 }
 
+const getUpdateFavorites = function (token) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiOrigin + 'favorites',
+    headers: {
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 // this will be a get request for names
 const getNouns = function (data) {
   return $.ajax({
@@ -122,5 +132,6 @@ module.exports = {
   updateFavorite,
   getNouns,
   getAdjectives,
-  destroyFavorite
+  destroyFavorite,
+  getUpdateFavorites
 }

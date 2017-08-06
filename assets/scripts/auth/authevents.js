@@ -40,6 +40,12 @@ const getFavoriteNames = function (data) {
     .catch(ui.getFavoritesFailure)
 }
 
+const getUpdateNameList = function (data) {
+  api.getFavorites(data)
+    .then(ui.getUpdateNameListSuccess)
+    .catch(ui.getUpdateNameListFailure)
+}
+
 const onUpdate = function (event, data) {
   event.preventDefault()
   const id = data.favorite.id
@@ -47,7 +53,9 @@ const onUpdate = function (event, data) {
   console.log(id)
   api.updateFavorite(data, id)
   .then(ui.updateFavoritesSuccess)
+  .then(getUpdateNameList)
   .catch(ui.updateFavoritesFailure)
+  getFavoriteNames(event)
 }
 
 const populateNouns = function (event) {
@@ -78,18 +86,17 @@ const onSignIn = function (event) {
 const onCreateFavorite = function (event, data) {
   event.preventDefault()
   api.createFavorite(data)
-    .then()
     .then(ui.updateFavoritesSuccess)
+    .then(getUpdateNameList)
     .catch(ui.updateFavoritesFailure)
-  getFavoriteNames(event)
 }
 
 const onDestroyFavorite = function (event, data, id) {
   event.preventDefault()
   api.destroyFavorite(data, id)
     .then(ui.destroyFavoriteSuccess)
+    .then(getUpdateNameList)
     .catch(ui.destroyFavoriteFailure)
-  getFavoriteNames(event)
 }
 
 const addHandlers = () => {
@@ -105,5 +112,7 @@ module.exports = {
   populateNouns,
   populateAdjectives,
   onCreateFavorite,
-  onDestroyFavorite
+  onDestroyFavorite,
+  getUpdateNameList
+
 }

@@ -11,18 +11,6 @@ let comment
 let id
 let userFavorites = []
 
-// reset function
-const resetWords = function () {
-  noun = ''
-  comment = ''
-  adjective = ''
-  id = ''
-  document.getElementById('id-text').value = 'Id here'
-  document.getElementById('descriptor-text').value = 'Descriptor here'
-  document.getElementById('noun-text').value = 'Noun here'
-  document.getElementById('comment-text').value = 'Comment here'
-}
-
 // function to test input integer
 const testID = function (id) {
   if (Number.isInteger(id)) {

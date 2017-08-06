@@ -15,6 +15,17 @@ const message = function (str) {
   $('#errorReader').text(str)
 }
 
+const resetModalValues = () => {
+  document.getElementById('id-text').value = ''
+  document.getElementById('adjective-text').value = ''
+  document.getElementById('noun-text').value = ''
+  document.getElementById('comment-text').value = ''
+  document.getElementById('message-text').value = ''
+  document.getElementsByName('credentials[password]').value = 'stuff'
+  document.getElementsByName('credentials[password_confirmation]').value = 'stuff'
+  document.getElementsByName('credentials[email]').value = 'email goes here'
+}
+
 const clearFavorites = (array) => {
   $('#saved-names').empty()
   array = []
@@ -48,23 +59,22 @@ const signUpFailure = (data) => {
 
 // change password success
 const changePasswordSuccess = (data) => {
-  console.error("You're password has changed successfully.")
+  message("You're password has changed successfully.")
 }
 
 // change password failure
 const changePasswordFailure = function () {
-  console.error("You're password has changed successfully.")
+  alert("You're password has changed successfully.")
 }
 
 // sign out failure
 const signOutFailure = function () {
-  console.error('You are still logged in.')
+  message('You are still logged in.')
 }
 
 // get favorites success
 const getFavoritesSuccess = (data) => {
-  // should clear favorites
-  clearFavorites(userFavorites)
+  clearFavorites(store.favorites)
   // stores favorites in store
   store.favorites = data.favorites
   favorites = store.favorites
@@ -114,13 +124,15 @@ const getAdjectivesSuccess = (data) => {
 }
 
 const getAdjectivesFailure = function () {
-  console.log("nope")
+  message("nope")
 }
 
 const createFavoritesSuccess = function (data) {
   message('New Favorite')
-  const showFavoritesHTML = addFavorite({ data })
-  $('#saved-names').append(showFavoritesHTML)
+  // const showFavoritesHTML = addFavorite({ data })
+  // $('#saved-names').append(showFavoritesHTML)
+  return store.user.token
+
 }
 
 const createFavoritesFailure = function () {
@@ -129,6 +141,7 @@ const createFavoritesFailure = function () {
 
 const updateFavoritesSuccess = function () {
   message('Favorite is Updated')
+  return store.user.token
 }
 
 const updateFavoritesFailure = function () {
@@ -137,10 +150,26 @@ const updateFavoritesFailure = function () {
 
 const destroyFavoriteSuccess = function () {
   message('Favorite is Updated')
+  return store.user.token
 }
 
 const destroyFavoriteFailure = function () {
   message('Either not your favorite, or field fail.')
+}
+
+const getUpdateNameListSuccess = function (data) {
+  $('#saved-names').empty()
+  store.favorites = []
+  store.favorites = data.favorites
+  favorites = store.favorites
+  const userFavorites = favoritesDisplay(favorites)
+  // append them with handlebars
+  const showFavoritesHTML = showFavoritesTemplate({ userFavorites: userFavorites })
+  $('#saved-names').append(showFavoritesHTML)
+}
+
+const getUpdateNameListFailure = function () {
+  alert('failure to update list')
 }
 module.exports = {
   signUpSuccess,
@@ -162,5 +191,7 @@ module.exports = {
   updateFavoritesSuccess,
   updateFavoritesFailure,
   destroyFavoriteFailure,
-  destroyFavoriteSuccess
+  destroyFavoriteSuccess,
+  getUpdateNameListSuccess,
+  getUpdateNameListFailure
 }
