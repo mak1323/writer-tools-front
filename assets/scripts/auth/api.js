@@ -93,9 +93,9 @@ const updateFavorite = function (data, id) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiOrigin + 'favorites/' + id,
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data: data
   })
 }

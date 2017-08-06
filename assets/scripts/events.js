@@ -82,52 +82,26 @@ const postFavorite = function (event) {
   authEvents.onCreateFavorite(event, data)
 }
 
-// const patchFavorite = function (event) {
-//   let comment
-//   event.preventDefault()
-//   const idInitial = document.getElementById('id-text').value
-//   adjective = document.getElementById('descriptor-text').value
-//   noun = document.getElementById('noun-text').value
-//   comment = document.getElementById('message-text').formcontrol
-//   const idCheckOne = parseInt(idInitial)
-//   const idCheckTwo = testID(idCheckOne)
-//   id = checkFavorites(idCheckTwo)
-//   const data = {
-//     "favorite": {
-//       "id": id,
-//       "adjective": adjective,
-//       "noun": noun,
-//       "user_id": store.user.id,
-//       "comment": comment
-//     }
-//   }
-//   console.log(data)
-//   authEvents.onUpdate(event, data)
-//   resetWords()
-// }
-
 const patchFavorite = function (event) {
   event.preventDefault()
-console.log('working')
-  // const idInitial = document.getElementById('id-text').value
-  // adjective = document.getElementById('descriptor-text').value
-  // noun = document.getElementById('noun-text').value
-  // comment = document.getElementById('message-text').formcontrol
-  // const idCheckOne = parseInt(idInitial)
-  // const idCheckTwo = testID(idCheckOne)
-  // id = checkFavorites(idCheckTwo)
-  // const data = {
-  //   "favorite": {
-  //     "id": id,
-  //     "adjective": adjective,
-  //     "noun": noun,
-  //     "user_id": store.user.id,
-  //     "comment": comment
-  //   }
-  // }
-  // console.log(data)
-  // authEvents.onUpdate(event, data)
-  // resetWords()
+  const idInitial = parseInt(document.getElementById('id-text').value)
+  const adjective = document.getElementById('adjective-text').value
+  const noun = document.getElementById('noun-text').value
+  const comment = document.getElementById('comment-text').value
+  const idCheckOne = parseInt(idInitial)
+  const idCheckTwo = testID(idCheckOne)
+  id = checkFavorites(idCheckTwo)
+  const data = {
+    "favorite": {
+      "id": id,
+      "adjective": adjective,
+      "noun": noun,
+      "user_id": store.user.id,
+      "comment": comment
+    }
+  }
+  console.log(data)
+  authEvents.onUpdate(event, data)
 }
 
 const deleteFavorite = function (event) {

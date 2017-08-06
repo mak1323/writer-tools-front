@@ -3,7 +3,6 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -49,7 +48,6 @@ const onUpdate = function (event, data) {
   api.updateFavorite(data, id)
   .then(ui.updateFavoritesSuccess)
   .catch(ui.updateFavoritesFailure)
-  getFavoriteNames(event)
 }
 
 const populateNouns = function (event) {

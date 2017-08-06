@@ -11,6 +11,7 @@ $(() => {
   $('#sign-out-btn').hide()
   $('#change-password-btn').hide()
   $('.content').hide()
+  $('#id-text').hide()
 })
 
 $(() => {
@@ -33,6 +34,7 @@ $(() => {
         document.getElementById('noun-text').value = favorites[i].noun
         document.getElementById('adjective-text').value = favorites[i].adjective
         document.getElementById('comment-text').value = favorites[i].comment
+        document.getElementById('id-text').value = favorites[i].id
       }
     }
   })
