@@ -13,7 +13,7 @@ const onSignUp = function (event) {
       .then(ui.signUpSuccess)
       .catch(ui.signUpFailure(data))
   } else {
-    $('#errorReader').text("Passwords don't match, friend.")
+    console.error("Passwords don't match, friend.")
   }
   return data
 }

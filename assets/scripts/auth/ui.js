@@ -48,17 +48,17 @@ const signUpFailure = (data) => {
 
 // change password success
 const changePasswordSuccess = (data) => {
-  message("You're password has changed successfully.")
+  console.error("You're password has changed successfully.")
 }
 
 // change password failure
 const changePasswordFailure = function () {
-  message("You're password has changed successfully.")
+  console.error("You're password has changed successfully.")
 }
 
 // sign out failure
 const signOutFailure = function () {
-  message('You are still logged in.')
+  console.error('You are still logged in.')
 }
 
 // get favorites success

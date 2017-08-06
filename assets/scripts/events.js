@@ -100,16 +100,15 @@ const patchFavorite = function (event) {
       "comment": comment
     }
   }
-  console.log(data)
   authEvents.onUpdate(event, data)
 }
 
 const deleteFavorite = function (event) {
   event.preventDefault()
-  const idInitial = document.getElementById('id-text-delete').value
-  adjective = document.getElementById('descriptor-delete-text').value
-  noun = document.getElementById('noun-delete-text').value
-  comment = document.getElementById('comment-delete-text').value
+  const idInitial = parseInt(document.getElementById('id-text').value)
+  const adjective = document.getElementById('adjective-text').value
+  const noun = document.getElementById('noun-text').value
+  const comment = document.getElementById('comment-text').value
   const idCheckOne = parseInt(idInitial)
   const idCheckTwo = testID(idCheckOne)
   id = checkFavorites(idCheckTwo)
@@ -122,8 +121,9 @@ const deleteFavorite = function (event) {
       "comment": comment
     }
   }
+
+  authEvents.onUpdate(event, data)
   authEvents.onDestroyFavorite(event, data, id)
-  resetWords()
 }
 
 module.exports = {

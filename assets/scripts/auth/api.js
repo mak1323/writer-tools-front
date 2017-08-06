@@ -105,9 +105,9 @@ const destroyFavorite = function (data, id) {
   return $.ajax({
     method: 'DELETE',
     url: config.apiOrigin + 'favorites/' + id,
-  //   headers: {
-  //     Authorization: 'Token token=' + store.user.token
-  //   }
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data: data
   })
 }
