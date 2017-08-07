@@ -2,17 +2,27 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 
-a {
-  color: white;
-}
 
+a {
+  color: #fff;
+}
 
 body {
   background-image: url('http://i.imgur.com/NAktdV9.jpg');
 }
 
-h1 {
-  color: white;
+.content {
+  padding-top: 100px;
+}
+
+footer {
+  align-content: center;
+  background:#000;
+  bottom:0px;
+  position:fixed;
+  left:0px;
+  height:auto;
+  width:100%;
 }
 
 .generator-btn {
@@ -21,6 +31,26 @@ h1 {
   background-blend-mode: darken;
 }
 
-.content {
-  padding-top: 100px;
+h1 {
+  color: #fff;
+}
+
+h3 {
+  color: #fff;
+}
+
+h4 {
+  color: #fff;
+}
+
+.modal {
+  color: #000;
+}
+
+p {
+  color: #fff;
+}
+
+table {
+  color: #fff;
 }

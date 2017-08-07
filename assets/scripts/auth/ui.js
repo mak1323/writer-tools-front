@@ -1,14 +1,8 @@
 'use strict'
 const store = require('../store')
 const showFavoritesTemplate = require('../templates/favorites-listing.handlebars')
-const addFavorite = require('../templates/new-favorite-listing.handlebars')
-const api = require('./api')
 
-let userFavorites = []
 let favorites
-let nouns
-let adjectives
-let userId
 
 // message function for error reader
 const message = function (str) {
@@ -89,13 +83,14 @@ const getFavoritesSuccess = (data) => {
 
 // sign in success
 const signInSuccess = (data) => {
-  message('Signed in. To start playing click new game.')
+  message('Signed in. Get to naming.')
   store.user = data.user
   $('#change-password-btn').show()
   $('#sign-out-btn').show()
   $('#sign-up-btn').hide()
   $('#sign-in-btn').hide()
-  $('.content').show()
+  $('#characterGeneratorSpa').show()
+  $('#nameGeneratorSpa').show()
   resetModalValues()
   return store.user.token
 }
@@ -120,7 +115,7 @@ const getNounsSuccess = (data) => {
 }
 
 const getNounsFailure = function () {
-  console.log('nope')
+  alert('nope')
 }
 
 const getAdjectivesSuccess = (data) => {
@@ -129,7 +124,7 @@ const getAdjectivesSuccess = (data) => {
 }
 
 const getAdjectivesFailure = function () {
-  message("nope")
+  message('nope')
 }
 
 const createFavoritesSuccess = function (data) {

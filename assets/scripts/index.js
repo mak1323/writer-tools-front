@@ -10,8 +10,11 @@ $(() => {
   setAPIOrigin(location, config)
   $('#sign-out-btn').hide()
   $('#change-password-btn').hide()
-  $('.content').hide()
   $('#id-text').hide()
+  $('#characterGeneratorSpa').hide()
+  $('#nameGeneratorSpa').hide()
+  $('#character-generator-page').hide()
+  $('#name-generator-page').hide()
 })
 
 $(() => {
@@ -19,6 +22,16 @@ $(() => {
 })
 
 $(() => {
+  $('#nameGeneratorSpa').on('click', function (event) {
+    $('#name-generator-page').show()
+    $('#landing-page').hide()
+    $('#character-generator-page').hide()
+  })
+  $('#characterGeneratorSpa').on('click', function (event) {
+    $('#character-generator-page').show()
+    $('#landing-page').hide()
+    $('#name-generator-page').hide()
+  })
   $('#name-generator').on('click', events.generateName)
   $('#save-name').on('click', events.postFavorite)
   $('#save-name-edit').on('click', events.patchFavorite)

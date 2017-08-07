@@ -35,7 +35,7 @@
                 </button>
           <a class="navbar-brand" href="#">
 
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                    <img src="http://i.imgur.com/id58yIT.jpg" alt="">
 
                 </a>
 
@@ -45,7 +45,7 @@
 
           <div class="row nav navbar-nav">
 
-            <div class="col-md-8 col-xs-0">
+            <div class="col-md-6 col-xs-0">
 
               <h1>Writer Tools</h1>
 
@@ -75,9 +75,37 @@
 
               </div>
 
+            </div>
+
+            <div class="col-md-2 col-xs-6">
+
               <div>
 
                 <a class="btn" id="change-password-btn" data-toggle="modal" data-target=".bs-change-password" href="#">Change Password</a>
+
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6 col-xs-6">
+
+                <div>
+
+                  <a class="btn" id="characterGeneratorSpa"> Character Generator</a>
+
+                </div>
+
+              </div>
+
+              <div>
+
+                <div class="col-md-6 col-xs-6">
+
+                  <a class="btn" id="nameGeneratorSpa"> Name Generator</a>
+
+                </div>
 
               </div>
 
@@ -100,6 +128,65 @@
   <div class="content">
 
     <div class="container-fluid" id="landing-page">
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 box">
+
+          <h1>Writer Tools</h1>
+
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 box">
+
+          <h4>This is my work in progress and I am glad to share this with you. Welcome to the writer tools, a growing assortment of name generators, character generators, and more. </h4>
+
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 box">
+
+          <h4>Currently, my bar room name generator is ready to go, and in the works is my full flredged character generator. After that start looking forward to a story mapper where you can take the characters you make, and map out the outlines of any sort of story you can imagine.
+
+          Gunslinger saving the world? Sure. Samurai adapting to life as a family man? SUre, if you like that 90's family movie sort of thing. Epic quests, small journeys, fun interactions. Can't wait can you? </h4>
+
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -128,20 +215,20 @@
 
       </div>
 
-        <div class="row">
+      <div class="row">
 
-          <div class="col-md-2 col-xs-1">
+        <div class="col-md-2 col-xs-1">
 
-          </div>
+        </div>
 
-          <div class="col-md-8 col-xs-10 box">
-            <p>Ever have a problem creating a name for a restaurant, bar, or project. Well, this little gizmo is here for you. Click generate to get started.</p>
+        <div class="col-md-8 col-xs-10 box">
+          <p>Ever have a problem creating a name for a restaurant, bar, or project. Well, this little gizmo is here for you. Click generate to get started.</p>
 
-          </div>
+        </div>
 
-          <div class="col-md-2 col-xs-1">
+        <div class="col-md-2 col-xs-1">
 
-          </div>
+        </div>
 
       </div>
 
@@ -161,31 +248,47 @@
 
         </div>
 
-    </div>
-
-    <div class="row">
-
-      <div class="col-md-2 col-xs-1">
-
       </div>
 
-      <div class="col-md-8 col-xs-10 box" id="saved-names" style="width:800px;height:250px;line-height:2em;overflow:scroll;padding:5px;">
+      <div class="row">
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+        <div class="col-md-8 col-xs-10 box" id="saved-names" style="width:800px;height:250px;line-height:2em;overflow:scroll;padding:5px;">
+
+        </div>
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
 
       </div>
-
-      <div class="col-md-2 col-xs-1">
-
-      </div>
-
-  </div>
 
     </div>
 
     <div class="container-fluid" id="character-generator-page">
 
+      <div class="row">
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+        <div class="col-md-8 col-xs-10 box" id="saved-favorite-characters" style="width:800px;height:250px;line-height:2em;overflow:scroll;padding:5px;">
+
+        </div>
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+      </div>
+
     </div>
 
-</div>
+  </div>
   <!-- This is the footer and the current error message area -->
   <div class="row">
 
@@ -195,9 +298,9 @@
 
       <footer>
 
-        <h1 class=" error-reader" id="errorReader"></h1>
+        <h4 class=" error-reader" id="errorReader"></h4>
 
-        <h3>:-)</h3>
+        <h3>Every writer needs a pen.</h3>
 
       </footer>
 
@@ -278,13 +381,13 @@
 
             <legend>Change Password!</legend>
 
-            <input name="credentials[email]" type="text" value="email goes here">
+            <h4>Current Password</h4>
+            <input name="passwords[old]" type="password" value="stuff">
 
-            <input name="credentials[password]" type="password" value="stuff">
+            <h4>New Password</h4>
+            <input name="passwords[new]" type="password" value="stuff">
 
-            <input name="credentials[password_confirmation]" type="password" value="stuff">
-
-            <input type="submit" name="submit" value="Sign up!">
+            <input type="submit" name="submit" value="Change Password">
 
           </fieldset>
 
@@ -332,7 +435,7 @@
 
             <legend>Generated Name</legend>
 
-            <p>Add a comment, 50 characters or less.</p>
+            <h5>Add a comment, 50 characters or less.</h5>
 
             <h5 id="generatedName" class="generated-name"></h5>
 
@@ -352,12 +455,7 @@
 
   </div>
 
-  <div class="modal fade bs-edit-delete"
-  id="editDeleteModal"
-  tabindex="-1" role="dialog"
-  aria-labelledby="mySmallModalLabel"
-  aria-hidden="true"
-  >
+  <div class="modal fade bs-edit-delete" id="editDeleteModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
     <div class="modal-dialog modal-sm">
 
