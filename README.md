@@ -2,6 +2,18 @@ Welcome tot he front end of the writer tools. This is a tool set designed to hel
 
 The eventual goal of this app is to build a comprehensive tool set for writers. Enjoy.
 
+For the current API repo, it is:
+https://github.com/mak1323/writer-tools-api
+
+For the current deployed example, look to:
+https://pure-tundra-23985.herokuapp.com/
+
+For the current writer-tools-front, loot to:
+https://github.com/mak1323/writer-tools-front
+
+The front end is currently deployed on:
+https://mak1323.github.io/writer-tools-front/
+
 
 DESCRIPTION
 

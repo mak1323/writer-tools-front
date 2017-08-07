@@ -5,6 +5,7 @@ const store = require('./store')
 const ui = require('./auth/ui')
 const getFormFields = require('../../lib/get-form-fields')
 
+// global declarations
 let noun
 let adjective
 let comment
@@ -27,6 +28,7 @@ const checkFavoritesArray = function (array) {
   }
 }
 
+// pulls the id out of the favorites array
 const checkFavorites = function (id) {
   const favorites = store.favorites
   checkFavoritesArray(favorites)
@@ -39,7 +41,7 @@ const checkFavorites = function (id) {
 
 // displays the name we created
 const nameDisplay = function (str) {
-  $('.generated-name').text(str)
+  $('#generatedName').text(str)
 }
 // This creates a random number based off the size of tables. Right now, this is
 // set manually
@@ -47,17 +49,23 @@ const randomizeWord = function () {
   return Math.random() * (154 - 1) + 1
 }
 
+// the main generate name function.
 const generateName = function (event) {
   event.preventDefault()
+  // pulls a random noun out of store.nouns
   noun = store.nouns[parseInt(randomizeWord())].word
+  // pulls a random adjective out of store.adjectives
   adjective = store.adjectives[parseInt(randomizeWord())].word
+  // puts them together
   const currentName = 'The ' + adjective + ' ' + noun
+  // displays the name
   nameDisplay(currentName)
 }
 
+// post favorite function
 const postFavorite = function (event) {
   event.preventDefault()
-
+// pulls the comment out of the modal
   comment = document.getElementById('message-text').value
   const data = {
     "favorite": {
