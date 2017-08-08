@@ -4,20 +4,6 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-const onSignUp = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  console.log(data)
-  if (data.credentials.password === data.credentials.password_confirmation) {
-    api.signUp(data)
-      .then(ui.signUpSuccess)
-      .catch(ui.signUpFailure(data))
-  } else {
-    console.error("Passwords don't match, friend.")
-  }
-  return data
-}
-
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -25,6 +11,7 @@ const onChangePassword = function (event) {
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
+  $('.bs-change-password').modal('toggle')
 }
 
 const onSignOut = function (event) {
@@ -33,6 +20,7 @@ const onSignOut = function (event) {
   api.signOut(data)
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
+  $('.bs-sign-out').modal('toggle')
 }
 
 const getFavoriteNames = function (data) {
@@ -80,6 +68,22 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
   populateNouns(event)
   populateAdjectives(event)
+  $('.bs-sign-in').modal('toggle')
+}
+
+const onSignUp = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data)
+  if (data.credentials.password === data.credentials.password_confirmation) {
+    api.signUp(data)
+      .then(ui.signUpSuccess)
+      .then((creds) => onSignIn(creds))
+      .catch(ui.signUpFailure(data))
+  } else {
+    console.error("Passwords don't match, friend.")
+  }
+  $('.bs-sign-up').modal('toggle')
 }
 
 const onCreateFavorite = function (event, data) {
@@ -99,7 +103,7 @@ const onDestroyFavorite = function (event, data, id) {
 }
 
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp)
+  $('#sign-up').on('submit', onSignUp).on('submit', onSignIn)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#signout').on('submit', onSignOut)

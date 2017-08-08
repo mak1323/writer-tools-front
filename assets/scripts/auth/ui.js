@@ -44,8 +44,10 @@ const favoritesDisplay = function (array) {
 
 // for signup success
 const signUpSuccess = (data) => {
+  const creds = data
   message('You have made a new user. Sign in?')
   resetModalValues()
+  return creds
 }
 
 // for signin failute
@@ -109,6 +111,8 @@ const signOutSuccess = function () {
   $('#sign-in-btn').show()
   $('#character-generator-page').hide()
   $('#name-generator-page').hide()
+  $('#characterGeneratorSpa').hide()
+  $('#nameGeneratorSpa').hide()
   $('#landing-page').show()
   resetModalValues()
 }
