@@ -68,7 +68,7 @@ const changePasswordSuccess = (data) => {
 
 // change password failure
 const changePasswordFailure = function () {
-  alert("You're password has changed successfully.")
+  alert("You're password current password was incorrect.")
 }
 
 // sign out failure
