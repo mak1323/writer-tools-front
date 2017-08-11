@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Writer Tools V1.2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <header>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+                    <span class="sr-only">Toggle navigation</span>
+
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+
+                </button>
+          <a class="navbar-brand" href="#">
+
+                    <img src="http://i.imgur.com/id58yIT.jpg" alt="">
+
+                </a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <div class="row nav navbar-nav">
+
+            <div class="col-md-6 col-xs-0">
+
+              <h1>Writer Tools</h1>
+
+            </div>
+
+            <div class="col-md-2 col-xs-6">
+
+              <div>
+
+                <a class="btn" id="sign-up-btn" data-toggle="modal" data-target=".bs-sign-up" href="#">Sign Up</a>
+
+              </div>
+
+              <div>
+
+                <a class="btn" id="sign-out-btn" data-toggle="modal" data-target=".bs-sign-out" href="#">Sign-Out</a>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-2 col-xs-6">
+
+              <div>
+
+                <a class="btn" id="sign-in-btn" data-toggle="modal" data-target=".bs-sign-in" href="#">Sign In</a>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-2 col-xs-6">
+
+              <div>
+
+                <a class="btn" id="change-password-btn" data-toggle="modal" data-target=".bs-change-password" href="#">Change Password</a>
+
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6 col-xs-6">
+
+                <div>
+
+                  <a class="btn" id="characterGeneratorSpa"> Character Generator</a>
+
+                </div>
+
+              </div>
+
+              <div>
+
+                <div class="col-md-6 col-xs-6">
+
+                  <a class="btn" id="nameGeneratorSpa"> Name Generator</a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- /.navbar-collapse -->
+
+      </div>
+
+      <!-- /.container -->
+
+    </nav>
+
+  </header>
+
+  <div class="content">
+
+    <div class="container-fluid" id="landing-page">
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 box">
+
+          <h1>Writer Tools</h1>
+
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 box">
+
+          <h4>This is my work in progress and I am glad to share this with you. Welcome to the Writer Tools, a growing assortment of name generators, character generators, and more. </h4>
+
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 box">
+
+          <h4>Currently, my bar room name generator is ready to go, and in the works is my full flredged character generator. After that, start looking forward to a story mapper where you can take the characters you make, and map out the outlines of any sort of story you can imagine.
+
+          Gunslinger saving the world? Sure. Samurai adapting to life as a family man? Sure, if you like that 90's family movie sort of thing. Epic quests, small journeys, fun interactions. Can't wait can you? </h4>
+
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="container-fluid" id="name-generator-page">
+
+      <div class="row">
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 box">
+
+          <h1>Name Generator</h1>
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+        <div class="col-md-8 col-xs-10 box">
+          <p>Ever have a problem creating a name for a restaurant, bar, or project. Well, this little gizmo is here for you. Click generate to get started.</p>
+
+        </div>
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-5 col-xs-5">
+
+        </div>
+
+        <div class="col-md-2 col-xs-2 generator-btn">
+
+          <a class="btn" id="generate-name-btn" data-toggle="modal" data-target=".bs-generate-name" href="#">Generate a Name</a>
+
+        </div>
+
+        <div class="col-md-5 col-xs-5">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+        <div class="col-md-8 col-xs-10 box" id="saved-names" style="width:800px;height:250px;line-height:2em;overflow:scroll;padding:5px;">
+
+        </div>
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="container-fluid" id="character-generator-page">
+
+      <div class="row">
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+        <div class="col-md-8 col-xs-10 box" id="saved-favorite-characters" style="width:800px;height:250px;line-height:2em;overflow:scroll;padding:5px;">
+
+          <h1>Coming Soon</h1>
+
+        </div>
+
+        <div class="col-md-2 col-xs-1">
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- This is the footer and the current error message area -->
+  <div class="row">
+
+    <div class="col-xs-3"></div>
+
+    <div class="col-xs-6">
+
+      <footer>
+
+        <h4 class=" error-reader" id="errorReader"></h4>
+
+        <h3>Every writer needs a pen.</h3>
+
+      </footer>
+
+    </div>
+
+    <div class="col-xs-3"></div>
+
+  </div>
+
+
+  <div class="modal fade bs-sign-up" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <form id="sign-up">
+
+          <fieldset>
+
+            <legend>Sign up!</legend>
+
+            <input name="credentials[email]" type="text" placeholder="Email">
+
+            <input name="credentials[password]" type="password" placeholder="password">
+
+            <input name="credentials[password_confirmation]" type="password" placeholder="password">
+
+            <input type="submit" name="submit" value="Sign up!">
+
+          </fieldset>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal fade bs-sign-in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <form id="sign-in">
+
+          <fieldset>
+
+            <legend>Sign in!</legend>
+
+            <input type="text" placeholder="EMAIL" name="credentials[email]">
+
+            <input type="password" placeholder="PASSWORD" name="credentials[password]">
+
+            <input type="submit" name="submit" value="Sign In!">
+
+          </fieldset>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal fade bs-change-password" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <form id="change-password">
+
+          <fieldset>
+
+            <legend>Change Password!</legend>
+
+            <h5>Current Password</h5>
+            <input name="passwords[old]" type="password" value="stuff">
+
+            <h5>New Password</h5>
+            <input name="passwords[new]" type="password" value="stuff">
+
+            <input type="submit" name="submit" value="Change Password">
+
+          </fieldset>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal fade bs-sign-out" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <form id="signout">
+
+          <fieldset>
+
+            <legend>Sign Out!</legend>
+
+            <input type="submit" name="submit" value="BYE!">
+
+          </fieldset>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal fade bs-generate-name" id="nameGeneratorModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <form id="generatename">
+
+          <fieldset>
+
+            <legend>Generated Name</legend>
+
+            <h5 id="generatedName" class="generated-name"></h5>
+
+            <h5>Add a comment, 50 characters or less.</h5>
+
+
+            <textarea class="form-control" id="message-text" maxlength="50"></textarea>
+
+            <button id="name-generator" name="name_generator" type="submit">Generate a name</button>
+
+            <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">Save Name</button>
+
+          </fieldset>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal fade bs-edit-delete" id="editDeleteModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <form id="generate-name">
+
+          <fieldset>
+
+            <legend>Edit or Delete Name</legend>
+
+            <p>Keep inputs 50 characters or less.</p>
+
+            <textarea class="form-control" id="adjective-text" maxlength="50"></textarea>
+
+            <textarea class="form-control" id="id-text" maxlength="50"></textarea>
+
+            <textarea class="form-control" id="noun-text" maxlength="50"></textarea>
+
+            <textarea class="form-control" id="comment-text" maxlength="50"></textarea>
+
+            <button id="save-name-edit" name="name_generator" type="submit" data-dismiss="modal">Save Edits</button>
+
+            <button id="delete-name" type="button" class="btn btn-primary" data-dismiss="modal">Delete Name</button>
+
+          </fieldset>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>
